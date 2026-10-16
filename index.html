@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Modern Todo App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo-area">
+        <svg class="app-logo" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+        <h1>TaskFlow</h1>
+      </div>
+      <p class="subtitle">Organize your daily tasks efficiently</p>
+    </header>
+
+    <main class="todo-card">
+      <form id="todo-form" class="todo-form">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="todo-input"
+            class="todo-input"
+            placeholder="What needs to be done?"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="add-btn" aria-label="Add task">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add Task</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="controls-bar">
+        <div class="filters" role="tablist" aria-label="Filter tasks">
+          <button type="button" class="filter-btn active" data-filter="all" id="filter-all" role="tab" aria-selected="true">
+            All <span class="filter-count" id="count-all">0</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="active" id="filter-active" role="tab" aria-selected="false">
+            Active <span class="filter-count" id="count-active">0</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="done" id="filter-done" role="tab" aria-selected="false">
+            Done <span class="filter-count" id="count-done">0</span>
+          </button>
+        </div>
+
+        <button type="button" id="clear-completed-btn" class="clear-btn" style="display: none;">
+          Clear Completed
+        </button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-label="Todo list">
+        <!-- Dynamic Todo Items -->
+      </ul>
+
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <p id="empty-state-text">No tasks found</p>
+      </div>
+
+      <footer class="card-footer">
+        <span id="items-left-count">0 items left</span>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module" src="/src/app.js"></script>
+</body>
+</html>
